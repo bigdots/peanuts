@@ -10,7 +10,6 @@
     <p>点击按钮获取数据</p>
 
     <script>
-        var renderData;
 
         var jsonp_button = document.getElementById("jsonp_button");
         var ajax_button = document.getElementById("ajax_button");
@@ -24,16 +23,16 @@
             var xhr = getXhr();
             xhr.open("get","http://www.b.com:3000/index.json");
             xhr.send();
-            if(xhr.status == 200){
-                console.log(xhr.responseText)
-            }else{
-                console.log("Request was unsuccessful: " + xhr.status)
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+                  console.log(xhr.responseText);
+              } else {
+                  console.log("Request was unsuccessful: " + xhr.status);
             }
         }
 
 
         function jsonp(data) {
-            renderData = data;
+            console.log(data);
         }
 
         function creatScript(url){
@@ -44,10 +43,10 @@
 
         function getXhr(){
             var xhr;
-            if(window.XMLHttpRequest){      //除IE外的浏览器
+            if(window.XMLHttpRequest){      
                 xhr = new XMLHttpRequest()
             }else{
-                xhr = new ActiveXObject("Microsoft.XMLHTTP");   //IE
+                xhr = new ActiveXObject("Microsoft.XMLHTTP"); 
             }
             return xhr;
         }
