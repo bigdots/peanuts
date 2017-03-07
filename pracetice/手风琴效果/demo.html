@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>手风琴效果</title>
+	<style>
+		*{
+			margin: 0;
+			padding:0;
+		}
+		#contain{
+			position: relative;
+			width: 916px;
+			height: 34px
+		}
+		ul li{
+			list-style:none;
+			float: left;
+			width:136px ;
+			height: 314px;
+			overflow: hidden;
+		}
+		.mask{
+			position: absolute;
+			top: 0;
+			width: 136px;
+			height: 314px;
+			opacity: 0.45;
+			background: red;
+			z-index: 2;
+		}
+
+		.on{
+			width: 236px;
+			height: 314px;
+		}
+		a:hover .mask{
+			opacity: 0;
+		}
+
+	</style>
+	
+	<script>
+		window.onload=function(){
+			var lists=document.getElementsByTagName('li')
+
+		}
+	</script>
+
+
+</head>
+<body>
+	<div id='contain'>
+		<ul>
+			<li class='on'><a href='#'><img src='images/1.jpg'></a><div id='images_1'></div></li>
+			<li><a href='#'><img src='images/2.jpg'></a><div class='mask'></div></li>
+			<li><a href='#'><img src='images/3.jpg'></a><div class='mask'></div></li>
+			<li><a href='#'><img src='images/4.jpg'></a><div class='mask'></div></li>
+			<li><a href='#'><img src='images/5.jpg'></a><div class='mask'></div></li>
+			<li><a href='#'><img src='images/6.jpg'></a><div class='mask'></div></li>
+		</ul>
+		
+	</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,208 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>手风琴效果</title>
+	<style>
+		*{
+			margin: 0;
+			padding:0;
+		}
+		#contain{
+			width: 1010px;
+			height: 190px;
+		}
+		.wrapper li{
+			width: 235px;
+			height: 140px;
+			float: left;
+			overflow: hidden;
+		}
+
+		.wrapper li a{
+			position: relative;
+			display: block;
+			width: 235px;
+			height: 140px;
+			overflow: hidden;
+			text-decoration: none;
+		}
+
+		.wrapper img{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 235px;
+			height: 140px;
+		}
+
+		.wrapper .info{
+			position: absolute;
+			top:20px;
+			left:5px; ;
+			padding:5px;
+		}
+		.wrapper .mask{
+			position: absolute;
+			width: 235px;
+			height: 140px;
+			opacity: 0;
+			filter:alpha(opacity:0);
+			left: 0;
+			top: 0;
+			background: #000;
+
+		}
+		.wrapper:hover .mask{            IE不支持非a元素的hover事件
+			opacity: 0.3;
+			filter:alpha(opacity:30);
+		}
+
+		.wrapper a h3{
+			color: #000;
+		}
+		.wrapper p{
+			color: #666681;
+			font-size: 14px;
+		}
+		.wrapper .price{
+			background: #E4393C;
+			color: #fff;
+			font-size: 12px;
+		}
+
+		/*css3样式，使动画变得平滑*/
+		.wrapper ul *{
+			transition:all linear 0.1s;
+
+		}
+
+
+		/*添加big样式，big样式控制鼠标悬停后的样式*/
+		.wrapper li.big,li.big a{   /*设置class为big的li和li下的a的样式*/
+			width: 305px;
+			height: 140px;
+		}
+
+		.wrapper li.big img{
+			width: 305px;
+			height: 140px;
+		}
+		.wrapper li.big a:hover .mask{    /* 优先级高于.wrapper:hover .mask*/
+			opacity: 0;
+		}
+
+
+
+	</style>
+	
+	<script>
+	window.onload=function(){
+		
+
+		//函数绑定机制
+		var addEvent=function(obj,event,fn){           //事件绑定函数
+			if(obj.addEventListener){
+				obj.addEventListener(event,fn,false)
+			}else if(obj.attachEvent){
+				obj.attachEvent('on'+event,fn)  
+			}
+		}
+
+		
+		function mouseoverHandler(event){
+			var e=event||window.event         //事件对象的获取
+			var target=e.target || e.srcElement;    //获取事件的目标
+			var outer=document.getElementById('contain');
+			var lists=outer.getElementsByTagName('li');
+
+			for(var i=0;i<lists.length;i++){
+				lists[i].className=""
+			}   
+			//li内有许多的元素，当鼠标悬停li时，target并不能捕捉到li。这个条件让我们直到捕捉到li时或者body时停止
+			while(target.tagName!='LI'&&target.tagName!='BODY'){    //tagName返回的是大写       
+				target=target.parentNode;   
+			}
+			target.className='big'
+
+		}
+
+		
+
+		function initlist(){
+			var contain=document.getElementById('contain')
+			var lists=contain.getElementsByTagName('li');
+			for(var i=0;i<lists.length;i++){
+				addEvent(lists[i],'mouseover',mouseoverHandler)    //可以是函数名、函数，但不能是表达式，   
+			} 
+		}
+
+	    initlist();
+
+
+	}
+
+
+
+
+	</script>
+
+
+</head>
+<body>
+	<div id='contain' class='wrapper'>
+		<ul>
+			<li class=''>
+				<a href='#'>
+					<img src='images/12.jpg'>
+					<div class='info'>
+						<h3>天天低价</h3>
+						<p>机械革命游戏</p>
+						<p class='price'>4866元秒杀</p>
+						
+					</div>
+					<i class='mask'></i>
+				</a>
+			</li>
+			<li class=''>
+				<a href='#'>
+					<img src='images/13.jpg'>
+					<div class='info'>
+						<h3>品牌街</h3>
+						<p>魅蓝note</p>
+						<p class='price'>享白条免息</p>
+						
+					</div>
+					<i class='mask'></i>
+				</a>
+			</li>
+			<li class=''>
+				<a href='#'>
+					<img src='images/14.jpg'>
+					<div class='info'>
+						<h3>金融精选</h3>
+						<p>打白条分期购></p>
+						<p class='price'>0元得MOTO X</p>
+					
+					</div>
+					<i class='mask'></i>
+				</a>
+			</li>
+			<li class=''>
+				<a href='#'>
+					<img src='images/15.jpg'>
+					<div class='info'>
+						<h3>京东预售</h3>
+						<p>三星S6预约</p>
+						<p class='price'>享白条免息</p>
+						
+					</div>
+					<i class='mask'></i>
+				</a>
+			</li>
+		</ul>
+		
+	</div>
+
+
+</body>
+

@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>展开与收起效果</title>
+	
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#content{
+		width: 400px;
+		height: auto;
+		margin: 0 auto;
+		border:1px solid #666;
+	}
+
+	#hdn{
+		height: 50px;
+		width: 400px;
+		background: red;
+	}
+	a{
+		display: block;
+		height: 30px;
+		background: #ccc;
+		margin: 0 auto;
+		width: 50px;
+		line-height: 30px;
+		text-align: center;
+		text-decoration: none;
+	}
+	</style>
+
+	<script>
+		function showDiv(){
+			var hrf=document.getElementById('hrf')
+			var hdn=document.getElementById('hdn')
+			hdn.style.display='block';
+			hrf.innerHTML='收起-';
+			hrf.href='javascript:hiddenDiv()'
+		}
+		function hiddenDiv(){
+			var hdn=document.getElementById('hdn')         //这个变量申明不能放于外部，因为按钮引用的函数，无法访问到函数外的变量
+			var hrf=document.getElementById('hrf')
+			hdn.style.display='none';
+			hrf.innerHTML='展开+';
+			hrf.href='javascript:showDiv()'
+
+		}
+	</script>
+</head>
+<body>﻿
+
+		<div id='content'>
+			<p>展开与收起效果展开与收起效果展开与收起效果展开与收起效果展开与收起效果</p>
+			<div id='hdn' style='display:none'>
+				<p>展开与收起效果展开与收起效果展开与收起效果展开与收起效果展开与收起效果</p>
+			</div>
+		</div>
+		<p><a id='hrf' href='javascript:showDiv()'>展开+</a></p>                <!--  可以通过这样引用函数 -->
+
+</body>
+</html>
