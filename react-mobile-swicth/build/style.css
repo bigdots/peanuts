@@ -1,0 +1,48 @@
+.mobile-switch {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  height: 22rem/ptr;
+  min-width: 44rem/ptr;
+  line-height: 20rem/ptr;
+  vertical-align: middle;
+  border-radius: 20rem/ptr;
+  border: 1rem/ptr solid transparent;
+  background-color: rgba0, 0, 0, 0.25;
+  cursor: pointer;
+  -webkit-transition: all 0.36s;
+  transition: all 0.36s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  .mobile-switch .mobile-switch-inner {
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 12rem/ptr;
+    margin-left: 24rem/ptr;
+    margin-right: 6rem/ptr;
+    display: block; }
+  .mobile-switch:after {
+    box-sizing: border-box;
+    position: absolute;
+    width: 18rem/ptr;
+    height: 18rem/ptr;
+    left: 1rem/ptr;
+    top: 1rem/ptr;
+    border-radius: 18rem/ptr;
+    background-color: #fff;
+    content: " ";
+    cursor: pointer;
+    -webkit-transition: all 0.36s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    transition: all 0.36s cubic-bezier(0.78, 0.14, 0.15, 0.86); }
+  .mobile-switch .mobile-switch-checked {
+    background-color: #108ee9; }
+    .mobile-switch .mobile-switch-checked:after {
+      left: 100%;
+      margin-left: -19rem/ptr; }
+    .mobile-switch .mobile-switch-checked .mobile-switch-inner {
+      margin-left: 6rem/ptr;
+      margin-right: 24rem/ptr; }
+
+/*# sourceMappingURL=style.css.map*/
